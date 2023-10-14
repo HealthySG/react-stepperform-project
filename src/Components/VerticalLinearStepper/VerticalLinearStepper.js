@@ -19,6 +19,7 @@ export default function VerticalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
   const [toggle, setToggle] = React.useState(false);
+  const[currentIndex,setCurrentIndex]=React.useState(0);
 
   const totalSteps = () => {
     return steps.length;
@@ -49,8 +50,13 @@ export default function VerticalLinearStepper() {
   };
 
   const handleStep = (step) => () => {
-    setActiveStep(step);
+    console.warn(step)
+    if(step<activeStep)
+    {
+      setActiveStep(step);
+    }
   };
+  
 
   const handleComplete = () => {
     const newCompleted = completed;
@@ -70,15 +76,15 @@ export default function VerticalLinearStepper() {
       height: "90vh", width: "300px",
        backgroundImage:  `url(${background})`, 
        backgroundSize: "cover",
-       backgroundPosition: "center"}}> 
+       backgroundPosition: "center",borderRadius:'15px',margin:'8px'}}> 
         <span>
-          <Stepper nonLinear activeStep={activeStep} orientation="vertical">
+          <Stepper sx={{margin:'30px'}} nonLinear activeStep={activeStep} orientation="vertical">
             {steps.map((label, index) => (
               <Step key={label}>
-                <StepButton color="inherit" onClick={handleStep(index)}>
-                  <Typography variant="h6">{label}</Typography>
-                  
-                  {stepsDescription[index]}
+                <StepButton color="inherit"  onClick={handleStep(index)}>
+                  <div style={{fontSize:'15px'}}>{label}
+                  <div style={{fontSize:'1.1rem',color:'white'}}>{stepsDescription[index]}</div>
+                  </div>
                 </StepButton>
               </Step>
             ))}

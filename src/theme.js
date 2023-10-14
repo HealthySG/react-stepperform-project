@@ -6,7 +6,8 @@ const theme = createTheme({
       },
   palette: {
     primary: {
-      main: '#2196F3', // Blue color
+      main: '#2196F3',
+      // fontFamily:'sans' // Blue color
     },
   },
 });

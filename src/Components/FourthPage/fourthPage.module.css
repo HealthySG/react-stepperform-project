@@ -1,0 +1,13 @@
+.label{
+    font-size: 17px;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* position: absolute; */
+    margin: 4px;
+}
+.labelForotherRows{
+    font-size: 17px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 4px;
+    color: gray;
+}

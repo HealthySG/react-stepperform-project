@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import { Form, CustomButton } from "../FirstPage";
 import { Card, CardContent, Divider, Typography, Link } from "@mui/material";
 import { Button, Container } from "@mui/material";
+import Summary from "./Summary";
+import CommonComponent from "../CommonComponent";
 
 function FourthPage(props) {
-  const { activeStep, handleBack } = props;
+  const { activeStep, handleBack,setActiveStep } = props;
   const [state] = useAppState();
   const [price, setprice] = useState(0);
   const { handleSubmit } = useForm({ defaultValues: state });
@@ -104,7 +106,7 @@ function FourthPage(props) {
         );
       case "Advanced":
         return (
-          <RowWithDivider label="Advanced(" price="12" isFirstRow={true} />
+          <RowWithDivider label="Advanced" price="12" isFirstRow={true} />
         );
       case "pro":
         return <RowWithDivider label="pro" price="15" isFirstRow={true} />;
@@ -126,7 +128,7 @@ function FourthPage(props) {
       case "Advanced":
         return (
           <RowWithDivider
-            label="Advanced("
+            label="Advanced"
             price="120"
             isFirstRow={true}
             isYearly={true}
@@ -178,50 +180,12 @@ function FourthPage(props) {
   }
   return (
     <React.Fragment>
-      <Form onSubmit={handleSubmit(submitData)}>
-        <h1>Finishing Up</h1>
-        <h4>Double-check everything looks OK before Confirming</h4>
-        <Container style={{ maxWidth: "50%" }}>
-          <CardContent sx={{ bgcolor: "lightblue", opacity: 0.5 }}>
-            {state.checked === false && getPlansMonthly(state.plans)}
-            {state.checked === true && getPlansYearly(state.plans)}
-            {Object.keys(state.addons).map((key) => {
-              const addon = state.addons[key];
-              return getaddonesMonthly(addon, key);
-            })}
-          </CardContent>
-          {state.checked === false && (
-            <RowWithDivider label="Total (per month)" price={price} />
-          )}
-          {state.checked === true && (
-            <RowWithDivider
-              label="Total (per Yearly)"
-              price={price}
-              isYearly={true}
-            />
-          )}
-        </Container>
-        <div>
-          <Button
-            color="inherit"
-            disabled={activeStep === 0}
-            onClick={handleBack}
-            sx={{ mr: 1 }}
-            variant="contained"
-          >
-            Go Back
-          </Button>
-          <Button
-            variant="contained"
-            onClick={(e) => {
-              e.preventDefault();
-              alert("Your Order has confirmed !");
-            }}
-          >
-            Confirm
-          </Button>
-        </div>
-      </Form>
+       <CommonComponent 
+     title="Finishing up"
+     subtitle="Double check everything looks OK before confirming."
+    >
+      <Summary activeStep={activeStep} handleBack={handleBack} setActiveStep={setActiveStep}/>
+    </CommonComponent>
     </React.Fragment>
   );
 }

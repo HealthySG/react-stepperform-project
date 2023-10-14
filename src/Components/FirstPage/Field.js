@@ -5,9 +5,9 @@ export const Field = ({ children, label, error }) => {
   const id = getChildId(children);
 
   return (
-    <div className="col-sm-12 mb-3">
+    <div>
       <div htmlFor={id} className="form-label" style={{ fontWeight: "bold" }}>
-        <Typography variant="h6">{label}</Typography>
+        <Typography sx={{fontFamily:'sans-serif',fontSize:'15px',color:'black',fontWeight:'bold'}}variant="h6">{label}</Typography>
       </div>
       {React.cloneElement(children, {
         className: "custom-input-class", // Add your custom class here

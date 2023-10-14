@@ -6,6 +6,9 @@
     width: 600px;
     margin: 0 auto;
   }
+  input:active{
+    font-family: sans-serif;
+  }
   
   fieldset {
     display: flex;
@@ -13,13 +16,13 @@
     align-items: flex-start;
     width: 600px;
   }
-  .custom-input {
-    width: 100%; /* Adjust the width as needed */
-    padding: 10px; /* Adjust the padding as needed */
-    font-size: 16px; /* Adjust the font size as needed */
-    border: 1px solid #ccc; /* Add border styles as needed */
-    border-radius: 4px; /* Add border-radius as needed */
-  }
+  // .custom-input {
+  //   width: 100%; /* Adjust the width as needed */
+  //   padding: 10px; /* Adjust the padding as needed */
+  //   font-size: 16px; /* Adjust the font size as needed */
+  //   border: 1px solid #ccc; /* Add border styles as needed */
+  //   border-radius: 4px; /* Add border-radius as needed */
+  // }
   .field {
     display: flex;
     flex-direction: column;
@@ -98,4 +101,6 @@
     justify-content: space-between;
     width: 100%;
   }
-  
+// .field{
+//   font-weight: 100;
+// }
