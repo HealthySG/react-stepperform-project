@@ -54,10 +54,10 @@ function PersonalInfo(props) {
           <Input
             {...register("phonenumber", {
               pattern: {
-                value: /^\+?\d{1,2}\d{10}$/,
+                value: /^\d{10}$/,
                 message: "Please enter valid phone number.",
               },
-              maxLength: "14",
+              maxLength: "10",
               required: "Phone Number is required",
             })}
             type="text"
