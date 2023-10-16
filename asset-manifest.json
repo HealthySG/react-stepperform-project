@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-stepperform-project/static/css/main.425d814b.css",
-    "main.js": "/react-stepperform-project/static/js/main.568b6379.js",
+    "main.js": "/react-stepperform-project/static/js/main.a1b9c014.js",
     "static/js/787.4bdb4e35.chunk.js": "/react-stepperform-project/static/js/787.4bdb4e35.chunk.js",
     "index.html": "/react-stepperform-project/index.html",
     "main.425d814b.css.map": "/react-stepperform-project/static/css/main.425d814b.css.map",
-    "main.568b6379.js.map": "/react-stepperform-project/static/js/main.568b6379.js.map",
+    "main.a1b9c014.js.map": "/react-stepperform-project/static/js/main.a1b9c014.js.map",
     "787.4bdb4e35.chunk.js.map": "/react-stepperform-project/static/js/787.4bdb4e35.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.425d814b.css",
-    "static/js/main.568b6379.js"
+    "static/js/main.a1b9c014.js"
   ]
 }
