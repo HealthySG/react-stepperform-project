@@ -32,11 +32,12 @@ function SelectPlan(props) {
             className={styles.card}
           >
             <input
-              {...register("plans")}
+              {...register("plans",{
+                required: " Please choose one option",
+              })}
               type="radio"
               value="arcade"
               id="arcade"
-              checked
             />
             <label className={styles.label} for="arcade">
               <div className={styles.card_img}>
@@ -85,7 +86,6 @@ function SelectPlan(props) {
               </div>
             </label>
           </div>
-
           <div
             className={styles.card}
           >
@@ -112,6 +112,7 @@ function SelectPlan(props) {
             </label>
           </div>
         </div>
+        {errors.plans && <p className="errorMsg">{errors.plans.message}</p>}
         <Container>
           <Box
             className={styles.box}
