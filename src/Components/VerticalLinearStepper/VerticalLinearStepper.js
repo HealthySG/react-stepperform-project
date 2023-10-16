@@ -10,17 +10,17 @@ import SecondPage from "../SecondPage/SecondPage";
 import FourthPage from "../FourthPage/FourthPage";
 import ThirdPage from "../ThirdPage/ThirdPage";
 import { CustomButton } from "../FirstPage";
-import background from "../../assets/background-image.jpg"; 
+import background from "../../assets/background-image.jpg";
 
 const steps = ["STEP 1", "STEP 2", "STEP 3", "STEP 4"];
 const stepsDescription = ["YOUR INFO", "SELECT-PLANS", "ADD-ONES", "SUMMARY"];
 
+  // Used MUI Vertical Stepper component 
 export default function VerticalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
-  const [toggle, setToggle] = React.useState(false);
-  const[currentIndex,setCurrentIndex]=React.useState(0);
 
+  // Differnet functions which handles stepper activity like Go Back and Next Step.
   const totalSteps = () => {
     return steps.length;
   };
@@ -50,13 +50,11 @@ export default function VerticalLinearStepper() {
   };
 
   const handleStep = (step) => () => {
-    console.warn(step)
-    if(step<activeStep)
-    {
+    console.warn(step);
+    if (step < activeStep) {
       setActiveStep(step);
     }
   };
-  
 
   const handleComplete = () => {
     const newCompleted = completed;
@@ -71,19 +69,41 @@ export default function VerticalLinearStepper() {
   };
 
   return (
-    <Box  sx={{ margin:'20px',display: "flex", border: "2px", borderStyle: "dotted", borderColor: "black" }}>
-      <div style={{ 
-      height: "90vh", width: "300px",
-       backgroundImage:  `url(${background})`, 
-       backgroundSize: "cover",
-       backgroundPosition: "center",borderRadius:'15px',margin:'8px'}}> 
+    <Box
+      sx={{
+        margin: "20px",
+        display: "flex",
+        border: "2px",
+        borderStyle: "dotted",
+        borderColor: "black",
+      }}
+    >
+      <div
+        style={{
+          height: "90vh",
+          width: "300px",
+          backgroundImage: `url(${background})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          borderRadius: "15px",
+          margin: "8px",
+        }}
+      >
         <span>
-          <Stepper sx={{margin:'30px'}} nonLinear activeStep={activeStep} orientation="vertical">
+          <Stepper
+            sx={{ margin: "30px" }}
+            nonLinear
+            activeStep={activeStep}
+            orientation="vertical"
+          >
             {steps.map((label, index) => (
               <Step key={label}>
-                <StepButton color="inherit"  onClick={handleStep(index)}>
-                  <div style={{fontSize:'15px'}}>{label}
-                  <div style={{fontSize:'1.1rem',color:'white'}}>{stepsDescription[index]}</div>
+                <StepButton color="inherit" onClick={handleStep(index)}>
+                  <div style={{ fontSize: "15px" }}>
+                    {label}
+                    <div style={{ fontSize: "1.1rem", color: "white" }}>
+                      {stepsDescription[index]}
+                    </div>
                   </div>
                 </StepButton>
               </Step>
@@ -91,7 +111,7 @@ export default function VerticalLinearStepper() {
           </Stepper>
         </span>
       </div>
-      <div style={{  marginLeft: "100px", flex: 1 }}>
+      <div style={{ marginLeft: "100px", flex: 1 }}>
         <div style={{ flexDirection: "column" }}>
           {allStepsCompleted() ? (
             <React.Fragment>
@@ -105,42 +125,40 @@ export default function VerticalLinearStepper() {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <div style={{margin:'70px',justifyContent:'center',flexDirection:'row',alignContent:'center'}}>
+              <div
+                style={{
+                  margin: "70px",
+                  justifyContent: "center",
+                  flexDirection: "row",
+                  alignContent: "center",
+                }}
+              >   
+              {/* Rendering the Page based on the current step and passed the required props */}
                 {activeStep === 0 && <FirstPage handleNext={handleNext} />}
-                {activeStep === 1 && <SecondPage activeStep={activeStep} handleBack={handleBack} handleNext={handleNext} />}
-                {activeStep === 2 && <ThirdPage  activeStep={activeStep} handleBack={handleBack} handleNext={handleNext} />}
-                {activeStep === 3 && <FourthPage activeStep={activeStep} handleBack={handleBack} setActiveStep={setActiveStep} handleNext={handleNext} />}
+                {activeStep === 1 && (
+                  <SecondPage
+                    activeStep={activeStep}
+                    handleBack={handleBack}
+                    handleNext={handleNext}
+                  />
+                )}
+                {activeStep === 2 && (
+                  <ThirdPage
+                    activeStep={activeStep}
+                    handleBack={handleBack}
+                    handleNext={handleNext}
+                  />
+                )}
+                {activeStep === 3 && (
+                  <FourthPage
+                    activeStep={activeStep}
+                    handleBack={handleBack}
+                    setActiveStep={setActiveStep}
+                    handleNext={handleNext}
+                  />
+                )}
               </div>
-              <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-                {/* <Button
-                  color="inherit"
-                  disabled={activeStep === 0}
-                  onClick={handleBack}
-                  sx={{ mr: 1 }}
-                >
-                  Go Back
-                </Button> */}
-                {/*<Box sx={{ flex: "1 1 auto" }} />
-                 <Button  sx={{ mr: 1 }}>
-                  Next
-                </Button> */}
-                {/* <CustomButton onClick={handleNext}>Next {">"}</CustomButton> */}
-                {/* {activeStep !== steps.length &&
-                  (completed[activeStep] ? (
-                    <Typography
-                      variant="caption"
-                      sx={{ display: "inline-block" }}
-                    >
-                      Step {activeStep + 1} already completed
-                    </Typography>
-                  ) : (
-                    <Button onClick={handleComplete}>
-                      {completedSteps() === totalSteps() - 1 
-                        ? "Finish"
-                        : "Complete Step"}
-                    </Button>
-                  ))} */}
-              </Box>
+              <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}></Box>
             </React.Fragment>
           )}
         </div>

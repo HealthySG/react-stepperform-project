@@ -11,11 +11,10 @@ function PersonalInfo(props) {
   const {
     handleSubmit,
     register,
-    watch,
     trigger,
     setValue,
     formState: { errors },
-  } = useForm({ defaultValues: state, mode: "onBlur" });
+  } = useForm({ defaultValues: state, mode: "onSubmit" });
   const handleInputChange = (e) => {
     // Set the input value using react-hook-form's setValue
     setValue(e.target.name, e.target.value);
@@ -29,7 +28,6 @@ function PersonalInfo(props) {
           <Input
             {...register("firstName", { required: "First name is required" })}
             id="first-name"
-            onChange={handleInputChange}
           />
         </Field>
         {errors.firstName && (
@@ -46,7 +44,6 @@ function PersonalInfo(props) {
             })}
             type="email"
             id="email"
-            onChange={handleInputChange}
           />
         </Field>
         {errors.email && <p className="errorMsg">{errors.email.message}</p>}
@@ -57,12 +54,11 @@ function PersonalInfo(props) {
                 value: /^\d{10}$/,
                 message: "Please enter valid phone number.",
               },
-              maxLength: "10",
               required: "Phone Number is required",
             })}
             type="text"
             id="phone-number"
-            onChange={()=>trigger('phone-number')}
+              
           />
         </Field>
         {errors.phonenumber && (

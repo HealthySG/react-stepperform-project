@@ -4,19 +4,10 @@ import { Form } from "./FirstPage";
 import { useForm } from "react-hook-form";
 import { CustomButton } from "./FirstPage";
 import { Typography } from "@mui/material";
-import { useAccordionButton } from "react-bootstrap";
+
+// CommonComponent used in every page for rendering titile and subtitle.
 function CommonComponent(props) {
   const { title, subtitle, children } = props;
-  const [state, setState] = useAppState();
-  console.warn("State in ", state);
-  const saveData = (data) => {
-    console.log("data in ", data);
-    setState({ ...state, ...data });
-    // console.warn("dfbdb");
-    props.handleNext();
-  };
-  const { handleSubmit } = useForm({ defaultValues: state, mode: "onSubmit" });
-  
   return (
     <React.Fragment>
       <h1 style={{ fontSize: "40px" }}>{title}</h1>
@@ -32,9 +23,7 @@ function CommonComponent(props) {
       >
         {subtitle}
       </Typography>
-      <div>
-          {children}
-      </div>
+      <div>{children}</div>
     </React.Fragment>
   );
 }

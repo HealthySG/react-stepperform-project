@@ -1,11 +1,9 @@
 .card_img{
- /* border: 1px solid green; */
   margin-right: 5px;
   margin-left: 5px;
   width: 20%;
   position: relative;
   height: 150px;
-  /* border-radius:'10px' */
 }
 .label{
     border-radius: 10px;
@@ -38,7 +36,31 @@ input[type='radio']{
     font-weight: bold;
     margin: 5px;
 }
-/* .card_img:checked{
-    background-color: #ECE9FD;
-    border: 1px solid blue;
-} */
+.card {
+    width: 150px;
+    height: 170px;
+    border: 1px solid #E8E7E9;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.box {
+    width: 75%;
+    margin: 10px;
+    background-color: #F8F9FE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gobackbutton {
+    bottom: -110px;
+    margin-right: 270px;
+    color: gray;
+    height: 40px;
+    border: 1px solid red;
+}
+.imgincard {
+    left: -2px;
+    top: 1px;
+    background: #ED8791;
+    border-radius: 50%;
+}

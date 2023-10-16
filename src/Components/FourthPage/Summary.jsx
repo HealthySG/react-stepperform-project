@@ -96,7 +96,6 @@ function Summary(props) {
       );
     }
     function getPlansMonthly(plans) {
-      // console.log("plans in getplan function", plans);
       switch (plans) {
         case "arcade":
           return (

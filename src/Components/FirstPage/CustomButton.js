@@ -5,7 +5,6 @@ export const CustomButton = forwardRef(
   ({ children, variant, ...props }, ref) => {
     return (
       <button style={{
-        // float: "right",
         bottom:'170px',
         height:'40px',
         backgroundColor: "#0E2857", // Background color
@@ -13,7 +12,8 @@ export const CustomButton = forwardRef(
         padding: "8px 16px", // Medium size
         border: "none",
         borderRadius: "4px",
-        position:"fixed"
+        position:"fixed",
+        cursor:"pointer"
       }}
       {...props}>
         {children}
